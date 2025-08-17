@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LinksRenderInWebView" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="Theme.LinksRenderInWebView.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+
+    <style name="BottomBarIcon">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/bottom_bar_icon_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_circle_icon</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+</resources>

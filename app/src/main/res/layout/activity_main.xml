@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomBarCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/dimming_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000"
+            android:alpha="0"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="@dimen/progress_bar_size"
+            android:layout_height="@dimen/progress_bar_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/nativeFab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="16dp"
+            android:contentDescription="Open Menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/menu"
+            android:visibility="gone"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@android:color/white" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/nativeMenuContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/webView">
+
+            <LinearLayout
+                android:id="@+id/nativeMenuItemsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/menuItemHomepage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Homepage" />
+
+                <Button
+                    android:id="@+id/menuItemAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Us" />
+
+                <Button
+                    android:id="@+id/menuItemService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Service" />
+
+                <Button
+                    android:id="@+id/menuItemNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="News" />
+
+                <Button
+                    android:id="@+id/menuItemContactUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Us" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bottomBarCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/bottom_bar_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/bottomBarContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/bottom_bar_padding">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="22dp"
+                    app:cardBackgroundColor="@color/bottom_bar_background"
+                    app:cardCornerRadius="25dp"
+                    app:strokeColor="@color/lightGrey"
+                    app:strokeWidth="1dp">
+
+                    <ImageView
+                        android:id="@+id/icon_twitter"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/icon_twitter_description"
+                        android:padding="17dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_x"
+                        app:tint="@color/white" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="22dp"
+                    app:cardBackgroundColor="@color/bottom_bar_background"
+                    app:cardCornerRadius="25dp"
+                    app:strokeColor="@color/lightGrey"
+                    app:strokeWidth="1dp">
+
+                    <ImageView
+                        android:id="@+id/icon_youtube"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/icon_youtube_description"
+                        android:padding="17dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_ytube"
+                        app:tint="@color/white" />
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="22dp"
+                    app:cardBackgroundColor="@color/bottom_bar_background"
+                    app:cardCornerRadius="25dp"
+                    app:strokeColor="@color/lightGrey"
+                    app:strokeWidth="1dp">
+
+                    <ImageView
+                        android:id="@+id/icon_instagram"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/icon_instagram_description"
+                        android:padding="17dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_insta"
+                        app:tint="@color/white" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardBackgroundColor="@color/bottom_bar_background"
+                    app:cardCornerRadius="25dp"
+                    app:strokeColor="@color/lightGrey"
+                    app:strokeWidth="1dp">
+
+                    <ImageView
+                        android:id="@+id/icon_facebook"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/icon_facebook_description"
+                        android:padding="17dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_facebook"
+                        app:tint="@color/white" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
